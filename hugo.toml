@@ -1,0 +1,4 @@
+baseURL = 'https://lamonihistoricalassociation.org/'
+languageCode = 'en-us'
+title = 'Lamoni Historical Association'
+theme = 'ananke'

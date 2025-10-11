@@ -1,0 +1,36 @@
+baseURL = "https://lamonihistoricalassociation.org/"
+languageCode = "en-us"
+title = "Lamoni Historical Association"
+theme = "PaperMod"
+paginate = 10
+enableRobotsTXT = true
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[permalinks]
+stories = "/stories/:slug/"
+
+[menu]
+  [[menu.main]]
+  name = "Lamoni Historical Association"
+  url  = "/"
+  weight = 1
+
+  [[menu.main]]
+  name = "Untold Lamoni Stories"
+  url  = "/untold-lamoni-stories/"
+  weight = 10
+
+  [[menu.main]]
+  name = "Lamoni Sesquicentennial 2029"
+  url  = "/sesquicentennial-2029/"
+  weight = 20
+
+  [[menu.main]]
+  name = "Book of Mormon Bicentennial 2030"
+  url  = "/bicentennial-bom-2030/"
+  weight = 30

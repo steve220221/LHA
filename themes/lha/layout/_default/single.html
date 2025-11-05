@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+<article>
+<h1>{{ .Title }}</h1>
+{{ partial "byline.html" . }}
+<div class="content">{{ .Content }}</div>
+</article>
+{{ end }}

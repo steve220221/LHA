@@ -1,0 +1,10 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+<div class="grid" style="margin-top:1rem">
+{{ range .Paginator.Pages }}
+{{ partial "card.html" . }}
+{{ end }}
+</div>
+{{ template "_internal/pagination.html" . }}
+{{ end }}

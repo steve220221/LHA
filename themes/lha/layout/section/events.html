@@ -1,0 +1,8 @@
+{{ define "main" }}
+<h1>Events</h1>
+<div class="grid">
+{{ range sort .Pages "Date" "desc" }}
+{{ partial "card.html" . }}
+{{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,6 @@
+<p class="muted">
+{{ with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "January 2, 2006" }}</time>{{ end }}
+{{ with .Params.people }} • People: {{ delimit . ", " }}{{ end }}
+{{ with .Params.places }} • Places: {{ delimit . ", " }}{{ end }}
+{{ with .Params.themes }} • Themes: {{ delimit . ", " }}{{ end }}
+</p>

@@ -1,0 +1,10 @@
+<article class="card">
+{{ with .Params.thumbnail }}
+<img class="thumb" src="{{ . }}" alt="" loading="lazy" />
+{{ end }}
+<div class="p-4" style="padding:1rem">
+<h3 style="margin:0 0 .5rem"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+{{ with .Params.summary }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary }}</p>{{ end }}
+{{ with .Date }}<p class="muted" style="color:#666;font-size:.9rem">{{ . | time.Format "Jan 2, 2006" }}</p>{{ end }}
+</div>
+</article>

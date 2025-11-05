@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+<div class="header-bar">
+<div class="container announce" aria-live="polite">
+{{ with site.Params.announce }}
+<a href="{{ site.Params.announceLink }}">{{ . }}</a>
+{{ end }}
+</div>
+</div>
+<header class="header">
+{{ partial "header.html" . }}
+{{ partial "nav.html" . }}
+</header>
+<main id="main" class="container" tabindex="-1">
+{{ block "main" . }}{{ end }}
+</main>
+{{ partial "footer.html" . }}
+</body>
+</html>

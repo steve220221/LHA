@@ -1,0 +1,16 @@
+<footer class="footer">
+<div class="container grid">
+<div>
+<strong>{{ site.Params.brandShort }}</strong><br/>
+© {{ now.Format "2006" }} Lamoni Historical Association
+</div>
+<nav aria-label="Footer">
+{{ range site.Menus.footer }}
+<div><a href="{{ .URL }}">{{ .Name }}</a></div>
+{{ end }}
+</nav>
+<div>
+<em>Preserving Lamoni’s stories.</em>
+</div>
+</div>
+</footer>

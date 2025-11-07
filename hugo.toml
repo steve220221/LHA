@@ -1,7 +1,7 @@
 baseURL = "https://lamonihistoricalassociation.org/"
 languageCode = "en-us"
 title = "Lamoni Historical Association"
-theme = "PaperMod"
+theme = "lha"
 pagerSize = 10
 enableRobotsTXT = true
 

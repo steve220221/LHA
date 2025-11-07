@@ -1,7 +1,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
-{{ $scss := resources.Get "scss/main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+{{ $scss := resources.Get "scss/main.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $scss.RelPermalink }}" integrity="{{ $scss.Data.Integrity }}" />
 <link rel="icon" href="/favicon.ico" />
 {{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}" />{{ end }}

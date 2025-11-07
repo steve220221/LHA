@@ -1,10 +1,10 @@
 title = "Lamoni Historical Association"
 languageCode = "en-us"
 baseURL = "/"
-theme = "lha2"
+theme = "lha"
 
 
-disableKinds = ["taxonomyTerm","RSS"]
+disableKinds = ["taxonomy","RSS"]
 
 
 [permalinks]

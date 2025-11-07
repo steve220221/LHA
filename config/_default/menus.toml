@@ -1,12 +1,50 @@
-[[main]]; name="Home"; url="/"; weight=1
-[[main]]; name="Untold Lamoni Stories"; url="/pages/untold-lamoni-stories/"; weight=2
-[[main]]; name="Sesquicentennial"; url="/pages/sesquicentennial/"; weight=3
-[[main]]; name="Bicentennial"; url="/pages/bicentennial/"; weight=4
-[[main]]; name="Projects"; url="/pages/projects/"; weight=5
-[[main]]; name="About Us"; url="/pages/about/"; weight=6
+[[main]]
+name = "Home"
+url = "/"
+weight = 1
 
+[[main]]
+name = "Untold Lamoni Stories"
+url = "/pages/untold-lamoni-stories/"
+weight = 2
 
-[[footer]]; name="Research"; url="/pages/research/"; weight=1
-[[footer]]; name="Visit"; url="/pages/visit/"; weight=2
-[[footer]]; name="Contact"; url="/pages/contact/"; weight=3
-[[footer]]; name="Donate"; url="/pages/donate/"; weight=4
+[[main]]
+name = "Sesquicentennial"
+url = "/pages/sesquicentennial/"
+weight = 3
+
+[[main]]
+name = "Bicentennial"
+url = "/pages/bicentennial/"
+weight = 4
+
+[[main]]
+name = "Projects"
+url = "/pages/projects/"
+weight = 5
+
+[[main]]
+name = "About Us"
+url = "/pages/about/"
+weight = 6
+
+[[footer]]
+name = "Research"
+url = "/pages/research/"
+weight = 1
+
+[[footer]]
+name = "Visit"
+url = "/pages/visit/"
+weight = 2
+
+[[footer]]
+name = "Contact"
+url = "/pages/contact/"
+weight = 3
+
+[[footer]]
+name = "Donate"
+url = "/pages/donate/"
+weight = 4
+

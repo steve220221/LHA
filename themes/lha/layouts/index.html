@@ -1,0 +1,79 @@
+{{ define "main" }}
+<div class="hero">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}
+  <div class="prose">{{ . }}</div>
+  {{ end }}
+</div>
+
+{{ if site.Params.home.showFeaturedExhibits }}
+{{ with (where site.RegularPages "Section" "exhibits") }}
+<section class="featured-section">
+  <h2>Featured Exhibits</h2>
+  <div class="grid">
+    {{ range first 3 . }}
+    {{ partial "card.html" . }}
+    {{ end }}
+  </div>
+  <p class="text-center mt-1">
+    <a href="/exhibits/" class="btn">View All Exhibits</a>
+  </p>
+</section>
+{{ end }}
+{{ end }}
+
+{{ if site.Params.home.showFeaturedEvents }}
+{{ with (where site.RegularPages "Section" "events") }}
+<section class="featured-section">
+  <h2>Featured Events</h2>
+  <div class="grid">
+    {{ range first 3 . }}
+    {{ partial "card.html" . }}
+    {{ end }}
+  </div>
+  <p class="text-center mt-1">
+    <a href="/events/" class="btn">View All Events</a>
+  </p>
+</section>
+{{ end }}
+{{ end }}
+
+{{ if site.Params.home.showFeaturedStories }}
+{{ with (where site.RegularPages "Section" "stories") }}
+<section class="featured-section">
+  <h2>Featured Stories</h2>
+  <div class="grid">
+    {{ range first 3 . }}
+    {{ partial "card.html" . }}
+    {{ end }}
+  </div>
+  <p class="text-center mt-1">
+    <a href="/stories/" class="btn">View All Stories</a>
+  </p>
+</section>
+{{ end }}
+{{ end }}
+
+{{ if or site.Params.home.showDonateCta site.Params.home.showRegisterCta }}
+<section class="cta-section">
+  <div class="cta-grid">
+    {{ if site.Params.home.showRegisterCta }}
+    <div class="cta-card">
+      <h3>Share Your Story</h3>
+      <p>Help us preserve Lamoni's rich history by sharing your memories and stories.</p>
+      <a href="{{ site.Params.home.registerUrl }}" class="btn btn-primary">Register to Participate</a>
+    </div>
+    {{ end }}
+    
+    {{ if site.Params.home.showDonateCta }}
+    <div class="cta-card">
+      <h3>Support Our Mission</h3>
+      <p>Your donations help us preserve and share Lamoni's historical treasures.</p>
+      <a href="{{ site.Params.home.donateUrl }}" class="btn btn-secondary">Donate Now</a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

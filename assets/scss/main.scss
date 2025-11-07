@@ -1,0 +1,359 @@
+// Lamoni Historical Association Theme
+// Brand Colors
+$primary: #8B2E2C;
+$primary-dark: #6E1E1C;
+$amber: #F9C542;
+$amber-dark: #C26B1D;
+
+// Base Colors
+$white: #ffffff;
+$black: #333333;
+$gray-light: #f8f9fa;
+$gray-medium: #6c757d;
+$gray-dark: #495057;
+
+// Typography
+$font-family-base: 'Georgia', serif;
+$font-family-heading: 'Arial', sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+
+// Layout
+$container-max-width: 1200px;
+$spacing-unit: 1rem;
+
+// Base Styles
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $black;
+  margin: 0;
+  padding: 0;
+  background-color: $white;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+}
+
+// Header Styles
+.header-bar {
+  background-color: $primary-dark;
+  color: $white;
+  padding: 0.5rem 0;
+  
+  .announce {
+    text-align: center;
+    
+    a {
+      color: $amber;
+      text-decoration: none;
+      font-weight: bold;
+      
+      &:hover {
+        color: $amber-dark;
+      }
+    }
+  }
+}
+
+.header {
+  background-color: $primary;
+  color: $white;
+  padding: $spacing-unit 0;
+  
+  .site-title {
+    color: $white;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: $font-family-heading;
+    
+    &:hover {
+      color: $amber;
+    }
+  }
+}
+
+// Navigation Styles
+.nav {
+  background-color: $primary-dark;
+  padding: 0;
+  
+  a {
+    display: inline-block;
+    padding: $spacing-unit 1.5rem;
+    color: $white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: $primary;
+      color: $amber;
+    }
+    
+    &[aria-current="page"] {
+      background-color: $amber-dark;
+      color: $white;
+    }
+  }
+}
+
+// Main Content
+main {
+  padding: 2rem 0;
+  min-height: 400px;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  color: $primary-dark;
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  border-bottom: 3px solid $amber;
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: $primary;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+// Links
+a {
+  color: $primary;
+  text-decoration: underline;
+  
+  &:hover {
+    color: $primary-dark;
+  }
+}
+
+// Cards (for exhibits, events, stories)
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-unit;
+  margin-top: $spacing-unit;
+}
+
+.card {
+  background-color: $white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+  
+  .card-content {
+    padding: $spacing-unit;
+    
+    h3 {
+      margin: 0 0 0.5rem;
+      
+      a {
+        color: $primary-dark;
+        text-decoration: none;
+        
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+    
+    .muted {
+      color: $gray-medium;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    
+    p {
+      color: $gray-dark;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Footer
+.footer {
+  background-color: $primary-dark;
+  color: $white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  
+  a {
+    color: $amber;
+    
+    &:hover {
+      color: $amber-dark;
+    }
+  }
+}
+
+// Utility Classes
+.text-center {
+  text-align: center;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mt-1 {
+  margin-top: $spacing-unit;
+}
+
+.p-4 {
+  padding: $spacing-unit;
+}
+
+// Home Page Styles
+.hero {
+  text-align: center;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, $gray-light 0%, $white 100%);
+  border-radius: 8px;
+  margin-bottom: 3rem;
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .prose {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.featured-section {
+  margin: 3rem 0;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+  }
+}
+
+.cta-section {
+  margin: 4rem 0;
+  padding: 3rem 0;
+  background-color: $gray-light;
+  border-radius: 12px;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-card {
+  background-color: $white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  
+  h3 {
+    color: $primary;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    margin-bottom: 1.5rem;
+    color: $gray-dark;
+  }
+}
+
+// Button Styles
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  
+  &.btn-primary {
+    background-color: $primary;
+    color: $white;
+    
+    &:hover {
+      background-color: $primary-dark;
+      transform: translateY(-1px);
+    }
+  }
+  
+  &.btn-secondary {
+    background-color: $amber;
+    color: $primary-dark;
+    
+    &:hover {
+      background-color: $amber-dark;
+      color: $white;
+      transform: translateY(-1px);
+    }
+  }
+  
+  &:not(.btn-primary):not(.btn-secondary) {
+    background-color: transparent;
+    color: $primary;
+    border-color: $primary;
+    
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .nav a {
+    display: block;
+    padding: 0.75rem 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-grid {
+    grid-template-columns: 1fr;
+  }
+}

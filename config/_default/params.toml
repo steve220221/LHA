@@ -1,0 +1,19 @@
+[brand]
+name = "Lamoni Historical Association"
+short = "LHA"
+primary = "#8B2E2C"
+primaryDark = "#6E1E1C"
+amber = "#F9C542"
+amberDark = "#C26B1D"
+useLogo = true
+logoPath = "/images/lha_logo.svg" # swap to your asset
+
+
+[home]
+showFeaturedExhibits = true
+showFeaturedEvents = true
+showFeaturedStories = true
+showDonateCta = true
+showRegisterCta = true
+registerUrl = "/pages/untold-lamoni-stories/#register"
+donateUrl = "/pages/donate/"

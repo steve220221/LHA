@@ -83,66 +83,72 @@ body {
 }
 
 // Navigation Styles
-.nav {
-  background: linear-gradient(135deg, $white 0%, $gray-light 100%);
-  padding: 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-  border-top: 3px solid $amber;
-  
-  a {
-    display: inline-block;
-    padding: 1.2rem 2rem;
-    color: $primary-dark;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.05rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    position: relative;
-    transition: all 0.3s ease;
-    border-right: 1px solid rgba(139,46,44,0.2);
-    
-    &:last-child {
-      border-right: none;
-    }
-    
-    // Hover effect with underline animation
+
+.header {
+  background-color: $primary; // your deep red
+  color: $white;
+}
+
+/* NAV BAR (sits visually as part of the header) */
+.nav a {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1rem;      // smaller padding = tighter fit
+  color: $white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: none;
+  white-space: nowrap;        // prevents multi-line wrapping
+  overflow: hidden;           // just in case
+  text-overflow: ellipsis;    // if it ever gets too narrow
+  transition: color 0.2s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: $amber;
+    transform: translateX(-50%);
+    transition: width 0.2s ease;
+  }
+
+  &:hover {
+    color: $amber;
+
     &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 3px;
-      background-color: $primary;
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
+      width: 80%;
     }
-    
-    &:hover {
-      background-color: $primary;
-      color: $white;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      
-      &::after {
-        width: 80%;
-        background-color: $amber;
-      }
-    }
-    
-    &[aria-current="page"] {
-      background-color: $primary-dark;
-      color: $white;
-      font-weight: 700;
-      
-      &::after {
-        width: 80%;
-        background-color: $amber;
-      }
+  }
+
+  &[aria-current="page"] {
+    color: $amber;
+
+    &::after {
+      width: 80%;
     }
   }
 }
+
+
+/* Mobile: stack nicely if needed */
+@media (max-width: 768px) {
+  .nav .container {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+
+  .nav a {
+    padding: 0.5rem 0;
+  }
+}
+
 
 // Main Content
 main {
@@ -174,7 +180,7 @@ h3 {
 
 // Links
 a {
-  color: $primary;
+  color: $white;
   text-decoration: underline;
   
   &:hover {
@@ -210,7 +216,7 @@ a {
       margin: 0 0 0.5rem;
       
       a {
-        color: $primary-dark;
+        color: $white;
         text-decoration: none;
         
         &:hover {
@@ -377,22 +383,25 @@ a {
   .container {
     padding: 0 0.5rem;
   }
+}
+
+
   
-  .nav a {
-    display: block;
-    padding: 1rem 1.5rem;
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
+  // .nav a {
+  //   display: block;
+  //   padding: 1rem 1.5rem;
+  //   border-right: none;
+  //   border-bottom: 1px solid rgba(255,255,255,0.1);
+  //   text-align: center;
     
-    &:last-child {
-      border-bottom: none;
-    }
+  //   &:last-child {
+  //     border-bottom: none;
+  //   }
     
-    &::after {
-      display: none; // Hide underline animation on mobile
-    }
-  }
+  //   &::after {
+  //     display: none; // Hide underline animation on mobile
+  //   }
+  // }
   
   .hero h1 {
     font-size: 2rem;
@@ -404,5 +413,29 @@ a {
   
   .cta-grid {
     grid-template-columns: 1fr;
+  }
+
+
+// Mobile / narrow screens
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: stretch;   // stack vertically and fill width
+  }
+
+  .nav a {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &::after {
+      display: none; // hide underline animation on mobile
+    }
   }
 }

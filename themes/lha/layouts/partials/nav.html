@@ -1,6 +1,8 @@
-<nav class="container nav" aria-label="Primary">
-{{ $current := . }}
-{{ range site.Menus.main }}
-<a href="{{ .URL }}" {{ if $current.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>{{ .Name }}</a>
-{{ end }}
+<nav class="nav" aria-label="Primary">
+  <div class="container">
+    {{ $current := . }}
+    {{ range site.Menus.main }}
+      <a href="{{ .URL }}" {{ if $current.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>{{ .Name }}</a>
+    {{ end }}
+  </div>
 </nav>

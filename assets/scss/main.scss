@@ -84,24 +84,62 @@ body {
 
 // Navigation Styles
 .nav {
-  background-color: $primary-dark;
+  background: linear-gradient(135deg, $white 0%, $gray-light 100%);
   padding: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  border-top: 3px solid $amber;
   
   a {
     display: inline-block;
-    padding: $spacing-unit 1.5rem;
-    color: $white;
+    padding: 1.2rem 2rem;
+    color: $primary-dark;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    transition: all 0.3s ease;
+    border-right: 1px solid rgba(139,46,44,0.2);
+    
+    &:last-child {
+      border-right: none;
+    }
+    
+    // Hover effect with underline animation
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background-color: $primary;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
     
     &:hover {
       background-color: $primary;
-      color: $amber;
+      color: $white;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      
+      &::after {
+        width: 80%;
+        background-color: $amber;
+      }
     }
     
     &[aria-current="page"] {
-      background-color: $amber-dark;
+      background-color: $primary-dark;
       color: $white;
+      font-weight: 700;
+      
+      &::after {
+        width: 80%;
+        background-color: $amber;
+      }
     }
   }
 }
@@ -342,7 +380,18 @@ a {
   
   .nav a {
     display: block;
-    padding: 0.75rem 1rem;
+    padding: 1rem 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &::after {
+      display: none; // Hide underline animation on mobile
+    }
   }
   
   .hero h1 {

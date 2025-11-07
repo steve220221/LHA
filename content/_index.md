@@ -1,8 +1,4 @@
 ---
 title: "Lamoni Historical Association"
 ---
-Welcome to the Lamoni Historical Association. Explore our initiatives:
-
-- **[Untold Lamoni Stories](/untold-lamoni-stories/)**
-- **[Lamoni Sesquicentennial 2029](/sesquicentennial-2029/)**
-- **[Book of Mormon Bicentennial 2030](/bicentennial-bom-2030/)**
+Welcome to the Lamoni Historical Association. We are dedicated to preserving and sharing the rich history of Lamoni, Iowa. Use the navigation menu above to explore our current initiatives and learn more about our community's heritage.

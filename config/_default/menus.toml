@@ -5,17 +5,17 @@ weight = 1
 
 [[main]]
 name = "Untold Lamoni Stories"
-url = "/pages/untold-lamoni-stories/"
+url = "/untold-lamoni-stories/"
 weight = 2
 
 [[main]]
-name = "Sesquicentennial"
-url = "/pages/sesquicentennial/"
+name = "Lamoni Sesquicentennial 2029"
+url = "/sesquicentennial-2029/"
 weight = 3
 
 [[main]]
-name = "Bicentennial"
-url = "/pages/bicentennial/"
+name = "Book of Mormon Bicentennial 2030"
+url = "/bicentennial-bom-2030/"
 weight = 4
 
 [[main]]

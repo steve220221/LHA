@@ -1,0 +1,23 @@
+Watching for changes in /Users/davidrichards/codes/LHA/{archetypes,assets,content,themes}
+Watching for config changes in /Users/davidrichards/codes/LHA/hugo.toml, /Users/davidrichards/codes/LHA/config/_default
+Start building sites … 
+hugo v0.150.0+extended+withdeploy darwin/arm64 BuildDate=2025-09-08T13:01:12Z VendorInfo=brew
+
+WARN  found no layout file for "json" for kind "home": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+
+                  │ EN 
+──────────────────┼────
+ Pages            │ 23 
+ Paginator pages  │  0 
+ Non-page files   │  0 
+ Static files     │  0 
+ Processed images │  0 
+ Aliases          │  2 
+ Cleaned          │  0 
+
+Built in 18 ms
+Environment: "development"
+Serving pages from disk
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at //localhost:1313/ (bind address 127.0.0.1) 
+Press Ctrl+C to stop

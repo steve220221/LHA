@@ -20,12 +20,12 @@ weight = 4
 
 [[main]]
 name = "Projects"
-url = "/pages/projects/"
+url = "/projects/"
 weight = 5
 
 [[main]]
 name = "About Us"
-url = "/pages/about/"
+url = "/about/"
 weight = 6
 
 [[footer]]

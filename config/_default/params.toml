@@ -6,7 +6,8 @@ primaryDark = "#6E1E1C"
 amber = "#F9C542"
 amberDark = "#C26B1D"
 useLogo = true
-logoPath = "/images/lha_logo.svg" # swap to your asset
+logoPath = "/images/logo.png"
+logoAlt = "Lamoni Historical Association Logo"
 
 
 [home]

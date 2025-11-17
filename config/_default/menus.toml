@@ -9,12 +9,12 @@ url = "/untold-lamoni-stories/"
 weight = 2
 
 [[main]]
-name = "Lamoni Sesquicentennial 2029"
+name = "Lamoni Sesquicentennial"
 url = "/sesquicentennial-2029/"
 weight = 3
 
 [[main]]
-name = "Book of Mormon Bicentennial 2030"
+name = "BOM Bicentennial"
 url = "/bicentennial-bom-2030/"
 weight = 4
 

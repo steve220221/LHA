@@ -230,6 +230,26 @@ h6 {
       color: $amber;
     }
   }
+  
+  .site-branding {
+    color: $white;
+    text-decoration: none;
+    transition: all $transition-fast;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  .site-logo {
+    max-height: 60px;
+    width: auto;
+    display: block;
+    
+    @media (max-width: $breakpoint-md) {
+      max-height: 48px;
+    }
+  }
 }
 
 // Navigation Styles
@@ -247,6 +267,10 @@ h6 {
       flex-wrap: wrap;
       gap: $space-2;
       padding: $space-2 $container-padding;
+    }
+    
+    @media (max-width: 900px) {
+      gap: $space-1;
     }
     
     @media (max-width: $breakpoint-md) {
@@ -282,6 +306,11 @@ h6 {
   @media (max-width: 900px) {
     padding: $space-2 $space-3;
     font-size: 0.75rem;
+  }
+  
+  @media (max-width: 840px) {
+    padding: $space-2;
+    font-size: 0.7rem;
   }
   
   @media (max-width: $breakpoint-md) {

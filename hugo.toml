@@ -8,29 +8,65 @@ enableRobotsTXT = true
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 
-[markup.goldmark.renderer]
-unsafe = true
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      hardWraps = false
+      xhtml = false
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
 
 [permalinks]
 stories = "/stories/:slug/"
 
 [menu]
   [[menu.main]]
-  name = "Lamoni Historical Association"
+  name = "Home"
   url  = "/"
   weight = 1
 
   [[menu.main]]
-  name = "Untold Lamoni Stories"
-  url  = "/untold-lamoni-stories/"
+  name = "About"
+  url  = "/about/"
+  weight = 5
+
+  [[menu.main]]
+  name = "Projects"
+  url  = "/projects/"
   weight = 10
 
   [[menu.main]]
-  name = "Lamoni Sesquicentennial 2029"
-  url  = "/sesquicentennial-2029/"
+  name = "Untold Stories"
+  url  = "/untold-lamoni-stories/"
   weight = 20
 
   [[menu.main]]
-  name = "Book of Mormon Bicentennial 2030"
-  url  = "/bicentennial-bom-2030/"
+  name = "Sesquicentennial 2029"
+  url  = "/sesquicentennial-2029/"
   weight = 30
+
+  [[menu.main]]
+  name = "BOM Bicentennial 2030"
+  url  = "/bicentennial-bom-2030/"
+  weight = 40
+
+  [[menu.main]]
+  name = "Register"
+  url  = "/register/"
+  weight = 50
+
+  [[menu.main]]
+  name = "Donate"
+  url  = "/donate/"
+  weight = 60

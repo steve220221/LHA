@@ -6,8 +6,13 @@ primaryDark = "#6E1E1C"
 amber = "#F9C542"
 amberDark = "#C26B1D"
 useLogo = true
+<<<<<<< Updated upstream
 logoPath = "/images/logo.png"
 logoAlt = "Lamoni Historical Association Logo"
+=======
+logoPath = "/images/logo.svg"
+logoAlt = "Lamoni Historical Association"
+>>>>>>> Stashed changes
 
 
 [home]
@@ -16,5 +21,6 @@ showFeaturedEvents = true
 showFeaturedStories = true
 showDonateCta = true
 showRegisterCta = true
-registerUrl = "/pages/untold-lamoni-stories/#register"
-donateUrl = "/pages/donate/"
+registerUrl = "https://www.convergepay.com/hosted-payments?ssl_txn_auth_token=4jYHLRh9ThWl%2BXzBgg%2BxRAAAAZnu5kiW"
+donateUrl = "https://www.convergepay.com/hosted-payments?ssl_txn_auth_token=4jYHLRh9ThWl%2BXzBgg%2BxRAAAAZnu5kiW"
+ulsUrl = "/content/untold-lamoni-stories/_index"

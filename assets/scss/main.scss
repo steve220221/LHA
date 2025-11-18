@@ -212,7 +212,15 @@ h6 {
       gap: $space-4;
       text-align: center;
     }
-  }
+}
+
+  .site-branding {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+
   
   .site-title {
     color: $white;
@@ -250,6 +258,12 @@ h6 {
       max-height: 48px;
     }
   }
+}
+
+img.site-logo {
+  height: 80px !important;   // tweak to taste
+  width: auto !important;
+  display: block !important;
 }
 
 // Navigation Styles

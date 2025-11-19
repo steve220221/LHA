@@ -966,6 +966,50 @@ a {
   min-height: auto;
 }
 
+// Simplified header
+.simple-header {
+  background-color: $white;
+  padding: $space-4 0;
+  box-shadow: $shadow-sm;
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .site-branding {
+    color: $primary;
+    text-decoration: none;
+    transition: all $transition-fast;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  .site-logo {
+    max-height: 80px;
+    width: auto;
+    display: block;
+    
+    @media (max-width: $breakpoint-md) {
+      max-height: 60px;
+    }
+  }
+  
+  .site-title {
+    font-size: $text-2xl;
+    font-weight: 700;
+    font-family: $font-family-heading;
+    color: $primary;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $text-xl;
+    }
+  }
+}
+
 // Hero Section for ULS
 .hero-uls {
   background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);

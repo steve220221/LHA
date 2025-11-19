@@ -1,0 +1,107 @@
+{{ define "main" }}
+<div class="hero">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}
+  <div class="prose">{{ . }}</div>
+  {{ end }}
+</div>
+
+{{ if site.Params.home.showFeaturedExhibits }}
+{{ with (where site.RegularPages "Section" "exhibits") }}
+<section class="featured-section">
+  <h2>Featured Exhibits</h2>
+  <div class="grid">
+    {{ range first 3 . }}
+    {{ partial "card.html" . }}
+    {{ end }}
+  </div>
+  <p class="text-center mt-1">
+    <a href="/exhibits/" class="btn">View All Exhibits</a>
+  </p>
+</section>
+{{ end }}
+{{ end }}
+
+{{ if site.Params.home.showFeaturedEvents }}
+{{ with (where site.RegularPages "Section" "events") }}
+<section class="featured-section">
+  <h2>Featured Events</h2>
+  <div class="grid">
+    {{ range first 3 . }}
+    {{ partial "card.html" . }}
+    {{ end }}
+  </div>
+  <p class="text-center mt-1">
+    <a href="/events/" class="btn">View All Events</a>
+  </p>
+</section>
+{{ end }}
+{{ end }}
+
+{{ if site.Params.home.showFeaturedStories }}
+{{ with (where site.RegularPages "Section" "stories") }}
+<section class="featured-section">
+  <h2>Featured Stories</h2>
+  <div class="grid">
+    {{ range first 3 . }}
+    {{ partial "card.html" . }}
+    {{ end }}
+  </div>
+  <p class="text-center mt-1">
+    <a href="/stories/" class="btn">View All Stories</a>
+  </p>
+</section>
+{{ end }}
+{{ end }}
+
+{{ if or site.Params.home.showDonateCta site.Params.home.showRegisterCta }}
+<section class="cta-section">
+  <div class="cta-grid">
+    {{ if site.Params.home.showRegisterCta }}
+    <div class="cta-card">
+      <h3>Untold Lamoni Stories</h3>
+      <p>Join us for a two-day event Feburary 27–28 where you will hear stories of Lamoni's past. The event will take place at the Shaw Center at Graceland University with three meals at the Commons on the Graceland campus.</p>
+      <a href="{{ site.Params.home.ulsUrl }}" class="btn btn-primary">Learn More!</a>
+      <a href="{{ site.Params.home.registerUrl }}" class="btn btn-primary">Register</a>
+    </div>
+    {{ end }}
+
+  <div class="cta-grid">
+    {{ if site.Params.home.showRegisterCta }}
+    <div class="cta-card">
+      <h3>Lamoni Sesquicentennial</h3>
+      <p>The Lamoni Historical Association in conjumction with Graceland University will be hosting 150 years of Lamoni, a Place of Peace. We are looking for volunteers and sponsors.</p>
+      <a href="{{ site.Params.home.registerUrl }}" class="btn btn-primary">Find Out How You Can Contribute!</a>
+    </div>
+    {{ end }}
+
+    <div class="cta-grid">
+    {{ if site.Params.home.showRegisterCta }}
+    <div class="cta-card">
+      <h3>Book of Mormon Bicentennial</h3>
+      <p>The Lamoni Historical Association in conjumction with Graceland University will be hosting 200 years of the publication of the Book of Mormon—its influence and impact. We are looking for volunteers and sponsors.</p>
+      <a href="{{ site.Params.home.registerUrl }}" class="btn btn-primary">Find Out How You Can Contribute!</a>
+    </div>
+    {{ end }}
+
+    <div class="cta-grid">
+    {{ if site.Params.home.showRegisterCta }}
+    <div class="cta-card">
+      <h3>Projects</h3>
+      <p>The Lamoni Historical Association is working on projects aimed at preparing for the sesquicentennial and the Bicentennial celebrations.</p>
+      <a href="{{ site.Params.home.registerUrl }}" class="btn btn-primary">Find Out More About These Projects!</a>
+    </div>
+    {{ end }}
+    
+    {{ if site.Params.home.showDonateCta }}
+    <div class="cta-card">
+      <h3>Support Our Mission</h3>
+      <p>Your donations help us preserve and share Lamoni's historical treasures.</p>
+      <a href="{{ site.Params.home.donateUrl }}" class="btn btn-secondary">Donate Now</a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

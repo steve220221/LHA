@@ -954,3 +954,284 @@ a {
     }
   }
 }
+
+// Styles for the Untold Lamoni Stories front page
+.simple-layout {
+  margin: 0;
+  padding: 0;
+}
+
+.simple-layout main {
+  padding: 0;
+  min-height: auto;
+}
+
+// Hero Section for ULS
+.hero-uls {
+  background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
+  color: $white;
+  text-align: center;
+  padding: $space-20 0;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $space-16 0;
+  }
+}
+
+.eyebrow {
+  font-size: $text-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $amber;
+  margin-bottom: $space-4;
+  font-weight: 600;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: $white;
+  margin-bottom: $space-6;
+  line-height: 1.1;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: 2.5rem;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: 2rem;
+  }
+}
+
+.hero-subtitle {
+  font-size: $text-lg;
+  color: $amber;
+  margin-bottom: $space-4;
+  font-weight: 500;
+}
+
+.hero-tagline {
+  font-size: $text-lg;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: $space-10;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: $line-height-relaxed;
+}
+
+.hero-cta-row {
+  display: flex;
+  gap: $space-4;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: $space-8;
+}
+
+// General section styles
+.section {
+  padding: $space-20 0;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $space-12 0;
+  }
+}
+
+.section-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-12;
+  
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+    gap: $space-10;
+  }
+}
+
+.section-block {
+  h2 {
+    color: $primary;
+    font-size: $text-2xl;
+    margin-bottom: $space-6;
+    border-bottom: 2px solid $amber;
+    padding-bottom: $space-2;
+  }
+  
+  h3 {
+    color: $primary-dark;
+    font-size: $text-xl;
+    margin: $space-6 0 $space-3;
+    
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+
+// Pricing lists
+.list-pricing {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 $space-6;
+  
+  li {
+    background-color: $gray-50;
+    padding: $space-3 $space-4;
+    margin-bottom: $space-2;
+    border-radius: $border-radius;
+    border-left: 3px solid $amber;
+    
+    strong {
+      color: $primary-dark;
+    }
+  }
+}
+
+// Schedule lists  
+.list-schedule {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 $space-6;
+  
+  li {
+    padding: $space-4 0;
+    border-bottom: 1px solid $gray-200;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    strong {
+      color: $primary;
+      display: block;
+      margin-bottom: $space-1;
+    }
+  }
+}
+
+.schedule-detail {
+  color: $gray-600;
+  font-size: $text-sm;
+  font-style: italic;
+}
+
+// Note text
+.note {
+  background-color: $amber;
+  color: $primary-dark;
+  padding: $space-4;
+  border-radius: $border-radius;
+  font-size: $text-sm;
+  margin-top: $space-6;
+  font-weight: 500;
+}
+
+// Bottom CTA
+.bottom-cta {
+  margin-top: $space-10;
+  text-align: center;
+}
+
+// Sponsors section
+.section-sponsors {
+  background-color: $gray-50;
+}
+
+.sponsor-intro {
+  text-align: center;
+  font-size: $text-lg;
+  color: $gray-600;
+  margin-bottom: $space-10;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $space-6;
+  margin-bottom: $space-12;
+}
+
+.sponsor-card {
+  background-color: $white;
+  padding: $space-8;
+  text-align: center;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow;
+  transition: all $transition-base;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+  
+  h3 {
+    color: $primary;
+    margin: 0;
+    font-size: $text-xl;
+  }
+}
+
+// Sponsor form
+.sponsor-form-section {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: $white;
+  padding: $space-8;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow;
+  
+  h3 {
+    color: $primary;
+    text-align: center;
+    margin-bottom: $space-4;
+  }
+  
+  p {
+    text-align: center;
+    color: $gray-600;
+    margin-bottom: $space-6;
+  }
+}
+
+.sponsor-form {
+  .form-group {
+    margin-bottom: $space-5;
+    
+    label {
+      display: block;
+      font-weight: 600;
+      color: $primary-dark;
+      margin-bottom: $space-2;
+    }
+    
+    input {
+      width: 100%;
+      padding: $space-3;
+      border: 2px solid $gray-300;
+      border-radius: $border-radius;
+      font-size: $text-base;
+      transition: border-color $transition-fast;
+      
+      &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 3px rgba(139, 46, 44, 0.1);
+      }
+    }
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: $space-4;
+  }
+}
+
+// Button size variants
+.btn-large {
+  padding: $space-4 $space-8;
+  font-size: $text-lg;
+}

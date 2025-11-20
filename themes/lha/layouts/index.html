@@ -120,17 +120,36 @@
 
       <!-- Graceland University -->
       <div class="sponsor-card">
-        <h3>Graceland University</h3>
+        <div class="sponsor-logo">
+          <a href="https://www.graceland.edu/" target="_blank" rel="noopener">
+            <img src="/images/graceland.jpg" alt="Graceland University Logo" class="sponsor-image">
+          </a>
+        </div>
+        <h3><a href="https://www.graceland.edu/" target="_blank" rel="noopener" class="sponsor-link">Graceland University</a></h3>
       </div>
 
       <!-- BMO Bank -->
       <div class="sponsor-card">
-        <h3>BMO Bank</h3>
+        <div class="sponsor-logo">
+          <a href="https://www.bmo.com/en-us/main/personal/" target="_blank" rel="noopener">
+            <img src="/images/bmo.png" alt="BMO Bank Logo" class="sponsor-image">
+          </a>
+        </div>
+        <h3><a href="https://www.bmo.com/en-us/main/personal/" target="_blank" rel="noopener" class="sponsor-link">BMO Bank</a></h3>
       </div>
 
       <!-- Lamoni Historical Association -->
       <div class="sponsor-card">
-        <h3>Lamoni Historical Association</h3>
+        <div class="sponsor-logo">
+          <a href="/about/" class="sponsor-link-internal">
+            {{ if site.Params.brand.useLogo }}
+              <img src="{{ site.Params.brand.logoPath }}" alt="{{ site.Params.brand.logoAlt }}" class="sponsor-image">
+            {{ else }}
+              <span class="sponsor-title-logo">{{ site.Params.brand.short }}</span>
+            {{ end }}
+          </a>
+        </div>
+        <h3><a href="/about/" class="sponsor-link sponsor-link-internal">Lamoni Historical Association</a></h3>
       </div>
 
       <!-- Add future sponsors here -->
@@ -141,7 +160,7 @@
       <h3>Become a Sponsor</h3>
       <p>Interested in sponsoring this event? Please provide your contact information and we'll get in touch with you about sponsorship opportunities.</p>
       
-      <form class="sponsor-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form class="sponsor-form" action="https://formspree.io/f/mqanozzw" method="POST">
         <div class="form-group">
           <label for="sponsor-name">Name *</label>
           <input type="text" id="sponsor-name" name="name" required>

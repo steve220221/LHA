@@ -1279,3 +1279,62 @@ a {
   padding: $space-4 $space-8;
   font-size: $text-lg;
 }
+
+// QR Code section
+.section-qr {
+  background-color: $white;
+  border-top: 1px solid $gray-200;
+  padding: $space-12 0;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $space-8 0;
+  }
+}
+
+.qr-section {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  
+  h3 {
+    color: $primary;
+    margin-bottom: $space-4;
+    font-size: $text-xl;
+  }
+  
+  p {
+    color: $gray-600;
+    margin-bottom: $space-6;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.qr-code {
+  background-color: $white;
+  padding: $space-6;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow;
+  display: inline-block;
+  margin-bottom: $space-4;
+}
+
+.qr-image {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  
+  @media (max-width: $breakpoint-sm) {
+    max-width: 150px;
+  }
+}
+
+.qr-note {
+  font-size: $text-sm;
+  color: $gray-500;
+  font-style: italic;
+}

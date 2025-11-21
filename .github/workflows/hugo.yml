@@ -40,13 +40,10 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Delete duplicate github-pages artifacts (safety)
-        uses: geekyeggo/delete-artifact@v5
-        with:
-          name: github-pages
-          failOnError: false
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

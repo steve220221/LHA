@@ -256,53 +256,64 @@ make theme-update
 
 ### Deployment
 
-#### Build for Production
-
-```bash
-make build
-```
-
-This generates static files in the `public/` directory.
-
-#### Deployment Notes
+This site is deployed to **GitHub Pages** at [https://lamonihistoricalassociation.org](https://lamonihistoricalassociation.org)
 
 **Repository**: `git@github.com:steve220221/LHA.git`  
-**Current Status**: Working tree clean, up to date with origin/main  
-**Available Tags**: 
-- `v0.1.0` (commit: c025ab9e)
-- `v0.1.1` (commit: 94bfd010)
+**Deployment Branch**: `gh-pages`  
+**Available Tags**: `v0.1.0`, `v0.1.1`
 
-#### Creating a New Release
+#### Quick Deploy
 
-1. **Tag the release**:
-   ```bash
-   git tag -a v0.1.2 -m "Release version 0.1.2"
-   git push origin v0.1.2
-   ```
+```bash
+# Deploy without creating a version tag
+make deploy-quick
 
-2. **Build for production**:
-   ```bash
-   make build
-   ```
+# Deploy with a version tag
+make deploy VERSION=v0.1.2 MESSAGE="Add new feature"
+```
 
-3. **Deploy** (choose your platform below)
+The deploy script will:
+1. Check that your working directory is clean
+2. Ensure you're on the `main` branch
+3. Pull latest changes from origin
+4. Build the site with `hugo --minify`
+5. Deploy to the `gh-pages` branch
+6. Create and push a version tag (if VERSION is provided)
+7. Leave your working directory clean on `main`
 
-#### Deploy to Popular Platforms
+#### Pre-Deployment Checklist
 
-- **Netlify**: Connect your Git repo, set build command to `hugo --minify`
-- **Vercel**: Import project, framework preset should auto-detect Hugo
-- **GitHub Pages**: Use GitHub Actions with Hugo workflow
-- **Traditional hosting**: Upload contents of `public/` directory
+```bash
+# Check current status
+make status
 
-#### Deployment Checklist
+# Test locally
+make dev
 
-- [ ] Update version in `hugo.toml` if needed
-- [ ] Test locally with `make dev`
-- [ ] Build with `make build`
-- [ ] Commit all changes: `git commit -am "Release notes"`
-- [ ] Create and push tag: `git tag -a vX.X.X -m "Description" && git push origin vX.X.X`
-- [ ] Deploy to hosting platform
-- [ ] Verify deployment at production URL
+# Ensure all changes are committed
+git add .
+git commit -m "Your changes"
+git push origin main
+```
+
+#### Manual Deployment
+
+If you need to deploy manually:
+
+```bash
+# Build the site
+make build
+
+# Run the deployment script
+./scripts/deploy.sh v0.1.2 "Release notes"
+```
+
+#### Deployment Troubleshooting
+
+- **Uncommitted changes**: Commit or stash changes before deploying
+- **Wrong branch**: Ensure you're on `main` before deploying
+- **Build fails**: Check Hugo errors with `make build`
+- **Site not updating**: GitHub Pages may take a few minutes to update
 
 ### Tips and Best Practices
 

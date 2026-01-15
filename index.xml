@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lamoni Historical Association</title><link>https://lamonihistoricalassociation.org/</link><description>Recent content on Lamoni Historical Association</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 19 Sep 2025 13:51:21 -0600</lastBuildDate><atom:link href="https://lamonihistoricalassociation.org/index.xml" rel="self" type="application/rss+xml"/><item><title>Welcome to My Hugo Site</title><link>https://lamonihistoricalassociation.org/posts/my-first-post/</link><pubDate>Fri, 19 Sep 2025 13:51:21 -0600</pubDate><guid>https://lamonihistoricalassociation.org/posts/my-first-post/</guid><description>&lt;h1 id="welcome-to-my-hugo-site"&gt;Welcome to My Hugo Site!&lt;/h1&gt;
+&lt;p&gt;This is my first post on my new Hugo website. Hugo is an amazing static site generator that makes it easy to create fast, secure websites.&lt;/p&gt;
+&lt;h2 id="what-is-hugo"&gt;What is Hugo?&lt;/h2&gt;
+&lt;p&gt;Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.&lt;/p&gt;
+&lt;h2 id="getting-started"&gt;Getting Started&lt;/h2&gt;
+&lt;p&gt;Here are some things you can do with your new Hugo site:&lt;/p&gt;</description></item><item><title>About the Lamoni Historical Association</title><link>https://lamonihistoricalassociation.org/about/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://lamonihistoricalassociation.org/about/</guid><description>&lt;div class="hero"&gt;
+ &lt;div class="container"&gt;
+ &lt;h1&gt;About the Lamoni Historical Association&lt;/h1&gt;
+ &lt;p class="lead"&gt;Preserving and sharing the rich heritage of Lamoni, Iowa since 1962&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="container"&gt;
+ &lt;div class="featured-section"&gt;
+ &lt;div class="grid-2"&gt;
+ &lt;div&gt;
+ &lt;h2&gt;Our Mission&lt;/h2&gt;
+ &lt;p&gt;The Lamoni Historical Association is dedicated to collecting, preserving, and sharing the rich history of Lamoni, Iowa and the surrounding area. We believe that understanding our past helps us build a stronger community for the future.&lt;/p&gt;
+ &lt;p&gt;Through our museums, archives, educational programs, and special events, we work to ensure that the stories, artifacts, and traditions of our community remain accessible to current and future generations.&lt;/p&gt;</description></item><item><title>Our Projects &amp; Initiatives</title><link>https://lamonihistoricalassociation.org/projects/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://lamonihistoricalassociation.org/projects/</guid><description>&lt;div class="hero"&gt;
+ &lt;div class="container"&gt;
+ &lt;h1&gt;Our Projects &amp; Initiatives&lt;/h1&gt;
+ &lt;p class="lead"&gt;Explore the diverse ways we preserve and celebrate Lamoni's rich heritage&lt;/p&gt;
+ &lt;div class="hero-actions"&gt;
+ &lt;a href="https://lamonihistoricalassociation.org/register/" class="btn btn-primary"&gt;Get Involved&lt;/a&gt;
+ &lt;a href="#overview" class="btn btn-outline"&gt;Browse Projects&lt;/a&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="container"&gt;
+ &lt;div class="featured-section"&gt;
+ &lt;div class="section-header"&gt;
+ &lt;h2&gt;Project Overview&lt;/h2&gt;
+ &lt;p class="section-description"&gt;From oral history collection to anniversary celebrations, our initiatives engage the community in preserving local heritage&lt;/p&gt;
+ &lt;/div&gt;
+ 
+ &lt;div id="overview" class="grid"&gt;
+ &lt;div class="card"&gt;
+ &lt;div class="card-content"&gt;
+ &lt;h3&gt;&lt;a href="https://lamonihistoricalassociation.org/untold-lamoni-stories/"&gt;Untold Lamoni Stories&lt;/a&gt;&lt;/h3&gt;
+ &lt;p class="card-meta"&gt;Ongoing Oral History Project&lt;/p&gt;
+ &lt;p&gt;Our flagship initiative collecting and preserving the personal histories that make our community unique. Through recorded interviews, written submissions, and photographic documentation, we capture the stories that official records don't tell - the daily life experiences, family traditions, and personal memories that reveal the true character of Lamoni.&lt;/p&gt;</description></item><item><title>Register for Events</title><link>https://lamonihistoricalassociation.org/register/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://lamonihistoricalassociation.org/register/</guid><description>&lt;div class="hero"&gt;
+ &lt;div class="container"&gt;
+ &lt;h1&gt;Register for LHA Events&lt;/h1&gt;
+ &lt;p class="lead"&gt;Join us for upcoming events and help preserve Lamoni's rich history&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="container"&gt;
+ &lt;div class="featured-section"&gt;
+ &lt;div class="section-header"&gt;
+ &lt;h2&gt;Upcoming Events&lt;/h2&gt;
+ &lt;p class="section-description"&gt;Register for workshops, tours, and special historical events throughout the year&lt;/p&gt;
+ &lt;/div&gt;
+ 
+ &lt;div class="grid"&gt;
+ &lt;div class="card"&gt;
+ &lt;div class="card-content"&gt;
+ &lt;h3&gt;Historical Walking Tours&lt;/h3&gt;
+ &lt;p class="card-meta"&gt;Every Saturday • 10:00 AM&lt;/p&gt;
+ &lt;p&gt;Explore Lamoni's historic downtown and learn about the founding families, early businesses, and significant landmarks that shaped our community.&lt;/p&gt;
+ &lt;a href="mailto:info@lamonihistoricalassociation.org?subject=Walking%20Tour%20Registration" class="btn btn-primary"&gt;Register Now&lt;/a&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+ 
+ &lt;div class="card"&gt;
+ &lt;div class="card-content"&gt;
+ &lt;h3&gt;Genealogy Research Workshop&lt;/h3&gt;
+ &lt;p class="card-meta"&gt;Monthly • First Wednesday • 7:00 PM&lt;/p&gt;
+ &lt;p&gt;Learn research techniques and access our extensive genealogy resources. Perfect for both beginners and experienced researchers.&lt;/p&gt;</description></item><item><title>Registration Complete</title><link>https://lamonihistoricalassociation.org/untold-lamoni-stories/thanks/result/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://lamonihistoricalassociation.org/untold-lamoni-stories/thanks/result/</guid><description>&lt;div class="container"&gt;
+ &lt;div class="featured-section"&gt;
+ &lt;div class="container"&gt;
+ &lt;h1&gt;Registration Complete&lt;/h1&gt;
+ &lt;/div&gt;
+ &lt;div class="section-header" style="text-align: center;"&gt;
+ &lt;h2&gt;Thank you for joining us!&lt;/h2&gt;
+ &lt;h2&gt;✓ Payment Successful&lt;/h2&gt;
+ &lt;p class="section-description"&gt;Thank you for registering for &lt;strong&gt;Untold Lamoni Stories&lt;/strong&gt; (February 27-28, 2026).&lt;/p&gt;
+ &lt;/div&gt;
+ 
+ &lt;div class="card" style="max-width: 700px; margin: 2rem auto;"&gt;
+ &lt;div class="card-content"&gt;
+ &lt;h3&gt;What's Next?&lt;/h3&gt;
+ &lt;ul style="text-align: left; line-height: 1.8;"&gt;
+ &lt;li&gt;&lt;strong&gt;Check Your Email:&lt;/strong&gt; A confirmation with your registration details and receipt has been sent to the email address you provided.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Event Details:&lt;/strong&gt; You'll receive additional information about the event schedule, parking, and meal options closer to the event date.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Questions?&lt;/strong&gt; Contact us at &lt;a href="mailto:info@lamonihistoricalassociation.org"&gt;info@lamonihistoricalassociation.org&lt;/a&gt; or call &lt;a href="tel:816-312-8536"&gt;(816) 312-8536&lt;/a&gt;.&lt;/li&gt;
+ &lt;/ul&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+ 
+ &lt;div class="cta-section"&gt;
+ &lt;div class="container" style="text-align: center;"&gt;
+ &lt;h3&gt;Event Information&lt;/h3&gt;
+ &lt;p&gt;&lt;strong&gt;Untold Lamoni Stories&lt;/strong&gt;&lt;br&gt;
+ February 27-28, 2026&lt;br&gt;
+ Shaw Center, Graceland University&lt;br&gt;
+ Lamoni, Iowa&lt;/p&gt;</description></item><item><title>Share Your Story</title><link>https://lamonihistoricalassociation.org/untold-lamoni-stories/stories/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://lamonihistoricalassociation.org/untold-lamoni-stories/stories/</guid><description>&lt;div class="hero"&gt;
+ &lt;div class="container"&gt;
+ &lt;h1&gt;Share Your Untold Lamoni Story&lt;/h1&gt;
+ &lt;p class="lead"&gt;Help us preserve the personal histories that make our community unique&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="container"&gt;
+ &lt;div class="featured-section"&gt;
+ &lt;div class="grid-2"&gt;
+ &lt;div&gt;
+ &lt;h2&gt;Your Stories Matter&lt;/h2&gt;
+ &lt;p&gt;Every family, every business, every individual who has called Lamoni home has stories worth preserving. These personal histories often reveal the most authentic and meaningful aspects of our community's heritage.&lt;/p&gt;
+ &lt;p&gt;The &lt;strong&gt;Untold Lamoni Stories&lt;/strong&gt; project is our effort to collect, document, and preserve these personal accounts for future generations. Whether it's memories of growing up on Main Street, running a local business, or participating in community traditions, your story is an important part of Lamoni's larger narrative.&lt;/p&gt;</description></item><item><title>Support Our Mission</title><link>https://lamonihistoricalassociation.org/donate/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://lamonihistoricalassociation.org/donate/</guid><description>&lt;div class="hero"&gt;
+ &lt;div class="container"&gt;
+ &lt;h1&gt;Support the Lamoni Historical Association&lt;/h1&gt;
+ &lt;p class="lead"&gt;Help us preserve and share Lamoni's rich history for future generations&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="container"&gt;
+ &lt;div class="featured-section"&gt;
+ &lt;div class="section-header"&gt;
+ &lt;h2&gt;Why Your Support Matters&lt;/h2&gt;
+ &lt;p class="section-description"&gt;Every donation helps us maintain our historic buildings, digitize important documents, and create educational programs that keep our community's story alive.&lt;/p&gt;
+ &lt;/div&gt;
+ 
+ &lt;div class="grid-3"&gt;
+ &lt;div class="card"&gt;
+ &lt;div class="card-content"&gt;
+ &lt;h3&gt;🏛️ Historic Preservation&lt;/h3&gt;
+ &lt;p&gt;Maintain and restore historic buildings and landmarks throughout Lamoni, ensuring they remain accessible for future generations.&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+ 
+ &lt;div class="card"&gt;
+ &lt;div class="card-content"&gt;
+ &lt;h3&gt;📚 Archive Digitization&lt;/h3&gt;
+ &lt;p&gt;Convert physical documents, photographs, and records into digital formats, making our history searchable and widely accessible.&lt;/p&gt;</description></item></channel></rss>

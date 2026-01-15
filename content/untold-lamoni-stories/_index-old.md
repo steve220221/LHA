@@ -1,3 +1,0 @@
----
-title: "Untold Lamoni Stories"
----

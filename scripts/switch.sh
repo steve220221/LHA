@@ -1,9 +1,10 @@
 #!/bin/bash
 set -e
 
-# Version Switching Script for Hugo Site
+# Version Switching and Deployment Script for Hugo Site
 # Usage: ./scripts/switch.sh <tag-name>
 # Example: ./scripts/switch.sh v0.2.0-simple
+# This will build and deploy the specified version, then return to main branch
 
 TAG=${1:-}
 
@@ -34,13 +35,16 @@ if ! git rev-parse "$TAG" >/dev/null 2>&1; then
     exit 1
 fi
 
-echo -e "${BLUE}=== Hugo Site Version Switcher ===${NC}"
+echo -e "${BLUE}=== Hugo Site Version Deployment ===${NC}"
 echo ""
+
+# Remember the current branch
+ORIGINAL_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "main")
 
 # Check for uncommitted changes
 if [ -n "$(git status --porcelain)" ]; then
     echo -e "${YELLOW}Warning: You have uncommitted changes${NC}"
-    echo "These changes will be stashed before switching versions."
+    echo "These changes will be stashed before deploying."
     read -p "Continue? (y/n) " -n 1 -r
     echo ""
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -49,18 +53,15 @@ if [ -n "$(git status --porcelain)" ]; then
     fi
     
     echo -e "${GREEN}Stashing changes...${NC}"
-    git stash push -m "Auto-stash before switching to $TAG"
+    git stash push -m "Auto-stash before deploying $TAG"
+    STASHED=true
 fi
 
-# Get current branch/tag
-CURRENT_REF=$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --exact-match 2>/dev/null || git rev-parse --short HEAD)
-
-echo -e "${GREEN}Current version: ${BLUE}$CURRENT_REF${NC}"
-echo -e "${GREEN}Switching to: ${BLUE}$TAG${NC}"
+echo -e "${GREEN}Deploying version: ${BLUE}$TAG${NC}"
 echo ""
 
-# Checkout the tag in detached HEAD state
-git checkout "$TAG"
+# Checkout the tag temporarily
+git checkout "$TAG" 2>/dev/null
 
 # Clean previous builds
 echo -e "${GREEN}Cleaning previous builds...${NC}"
@@ -70,17 +71,71 @@ rm -rf public/ resources/
 echo -e "${GREEN}Building site with version: $TAG${NC}"
 hugo --minify
 
+# Check if build was successful
+if [ ! -d "public" ]; then
+    echo -e "${RED}Error: Build failed - public directory not found${NC}"
+    git checkout "$ORIGINAL_BRANCH"
+    exit 1
+fi
+
+# Add CNAME file if needed (for custom domain)
+if [ ! -f "public/CNAME" ]; then
+    echo "lamonihistoricalassociation.org" > public/CNAME
+    echo -e "${GREEN}Added CNAME file for custom domain${NC}"
+fi
+
+# Add .nojekyll to prevent GitHub from processing with Jekyll
+touch public/.nojekyll
+
+# Deploy to GitHub Pages
+echo -e "${GREEN}Deploying to GitHub Pages...${NC}"
+
+# Fetch the gh-pages branch
+git fetch origin gh-pages:gh-pages 2>/dev/null || echo "Creating new gh-pages branch..."
+
+# Use git worktree for cleaner deployment
+if [ -d ".gh-pages-worktree" ]; then
+    rm -rf .gh-pages-worktree
+fi
+
+git worktree add .gh-pages-worktree gh-pages 2>/dev/null || git worktree add -b gh-pages .gh-pages-worktree
+
+# Copy built files to worktree
+rsync -av --delete --exclude='.git' public/ .gh-pages-worktree/
+
+# Commit and push from worktree
+cd .gh-pages-worktree
+git add -A
+if git diff --staged --quiet; then
+    echo -e "${YELLOW}No changes to deploy${NC}"
+    cd ..
+    git worktree remove .gh-pages-worktree
+    git checkout "$ORIGINAL_BRANCH"
+    exit 0
+fi
+
+git commit -m "Deploy $TAG - $(date '+%Y-%m-%d %H:%M:%S')"
+git push origin gh-pages
+
+cd ..
+git worktree remove .gh-pages-worktree
+
+# Return to original branch
 echo ""
-echo -e "${GREEN}✓ Successfully switched to version: ${BLUE}$TAG${NC}"
+echo -e "${GREEN}Returning to ${BLUE}$ORIGINAL_BRANCH${GREEN} branch...${NC}"
+git checkout "$ORIGINAL_BRANCH"
+
+# Restore stashed changes if any
+if [ "$STASHED" = true ]; then
+    echo -e "${GREEN}Restoring stashed changes...${NC}"
+    git stash pop
+fi
+
 echo ""
-echo -e "${YELLOW}Note: You are now in 'detached HEAD' state${NC}"
-echo "This is normal for viewing different versions."
+echo -e "${GREEN}✓ Successfully deployed version: ${BLUE}$TAG${NC}"
+echo -e "${GREEN}✓ Returned to ${BLUE}$ORIGINAL_BRANCH${GREEN} branch${NC}"
 echo ""
-echo "What you can do:"
-echo "  • ${GREEN}View locally:${NC} make dev (in another terminal)"
-echo "  • ${GREEN}Deploy this version:${NC} make deploy-quick"
-echo "  • ${GREEN}Switch to another version:${NC} ./scripts/switch.sh <other-tag>"
-echo "  • ${GREEN}Return to main branch:${NC} git checkout main"
+echo -e "Your site should be live at: ${BLUE}https://lamonihistoricalassociation.org${NC}"
 echo ""
 echo "Available versions:"
 git tag -l | sed 's/^/  /'

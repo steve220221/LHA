@@ -332,38 +332,41 @@ This will:
 
 **Note**: GitHub Pages can take 1-10 minutes to propagate changes. Also try a hard refresh (Cmd+Shift+R) or check in incognito mode to rule out browser caching.
 
-### Version Switching
+### Version Switching & Deployment
 
-The site supports **version switching** to quickly change between different pre-built versions. This is useful during events when you want to switch to a simplified view or different content.
+The site supports **version switching** to quickly deploy different pre-built versions. This is useful during events when you want to switch to a simplified view or different content.
 
 #### How It Works
 
-Different versions of the site are tagged in git. You can switch between versions locally, test them, and deploy whichever version you need.
+Different versions of the site are tagged in git. You can deploy any tagged version directly to GitHub Pages.
 
 **Available Versions:**
 - `v0.2.0-full` - Full site with all navigation and pages (main branch)
 - `v0.2.0-simple` - Simplified event view with no navigation, just registration and donate buttons
 
-#### Quick Version Switching
+#### Quick Version Deployment
 
 ```bash
 # List all available versions
 make list-versions
 
-# Switch to simplified event version
-make switch-simple
+# Deploy a specific version (this builds and deploys that version)
+./scripts/switch.sh v0.2.0-simple
 
-# Switch to full version
-make switch-full
-
-# Switch to any specific version
-make switch VERSION=v0.2.0-simple
-
-# Return to main development branch
-make switch-main
+# Or use make shortcuts
+make switch-simple  # Deploys simplified version
+make switch-full    # Deploys full version
 ```
 
-#### Version Switching Workflow
+**The script will:**
+1. Stash any uncommitted changes
+2. Check out the specified tag
+3. Build the site
+4. Deploy to GitHub Pages
+5. Return you to the main branch
+6. Restore any stashed changes
+
+#### Version Deployment Workflow
 
 1. **Before an event**, prepare multiple versions:
    ```bash
@@ -378,26 +381,25 @@ make switch-main
    git commit -m "Create special event version"
    git tag -a v0.2.1-event -m "Special event version"
    git checkout main
+   git push origin features/event-special
+   git push origin --tags
    ```
 
-2. **During an event**, switch versions quickly:
+2. **During an event**, deploy a different version:
    ```bash
-   # Switch to event version
-   make switch-simple
+   # Deploy simplified version (one command!)
+   ./scripts/switch.sh v0.2.0-simple
    
-   # Build and deploy
-   make deploy-quick
-   
-   # Later, switch back to full version
-   make switch-full
-   make deploy-quick
+   # Later, deploy full version back
+   ./scripts/switch.sh v0.2.0-full
    ```
 
 3. **The script automatically**:
    - Stashes any uncommitted changes
    - Checks out the specified tag
-   - Cleans and rebuilds the site
-   - Shows you what to do next
+   - Builds and deploys to GitHub Pages
+   - Returns you to main branch
+   - Restores stashed changes
 
 #### Creating New Versions
 
@@ -426,12 +428,14 @@ git push origin --tags
 
 ```bash
 # Run the switch script directly
+./Deploy a specific version
 ./scripts/switch.sh v0.2.0-simple
 
-# See available versions
+# See available versions (no argument)
 ./scripts/switch.sh
 ```
 
+**Note:** The script deploys the version immediately. You'll remain on your main branch when it completes.
 ### Tips and Best Practices
 
 1. **Content Organization**: Use descriptive filenames and organize by date or category

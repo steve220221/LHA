@@ -264,12 +264,45 @@ make build
 
 This generates static files in the `public/` directory.
 
+#### Deployment Notes
+
+**Repository**: `git@github.com:steve220221/LHA.git`  
+**Current Status**: Working tree clean, up to date with origin/main  
+**Available Tags**: 
+- `v0.1.0` (commit: c025ab9e)
+- `v0.1.1` (commit: 94bfd010)
+
+#### Creating a New Release
+
+1. **Tag the release**:
+   ```bash
+   git tag -a v0.1.2 -m "Release version 0.1.2"
+   git push origin v0.1.2
+   ```
+
+2. **Build for production**:
+   ```bash
+   make build
+   ```
+
+3. **Deploy** (choose your platform below)
+
 #### Deploy to Popular Platforms
 
 - **Netlify**: Connect your Git repo, set build command to `hugo --minify`
 - **Vercel**: Import project, framework preset should auto-detect Hugo
 - **GitHub Pages**: Use GitHub Actions with Hugo workflow
 - **Traditional hosting**: Upload contents of `public/` directory
+
+#### Deployment Checklist
+
+- [ ] Update version in `hugo.toml` if needed
+- [ ] Test locally with `make dev`
+- [ ] Build with `make build`
+- [ ] Commit all changes: `git commit -am "Release notes"`
+- [ ] Create and push tag: `git tag -a vX.X.X -m "Description" && git push origin vX.X.X`
+- [ ] Deploy to hosting platform
+- [ ] Verify deployment at production URL
 
 ### Tips and Best Practices
 

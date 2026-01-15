@@ -89,16 +89,15 @@ list-versions:
 	@echo ""
 	@echo "Current version:"
 	@git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --exact-match 2>/dev/null || echo "  (detached HEAD)"
-deploy to common versions
+
+# Quick deploy to common versions
 switch-simple:
 	@./scripts/switch.sh v0.2.0-simple
 
 switch-full:
 	@./scripts/switch.sh v0.2.0-full
-	@echo "Returned to main branch"
 
-# Switch to a different version (tag)
-switch:
+# Show help
 help:
 	@echo "Available commands:"
 	@echo "  dev           - Start development server (default)"

@@ -332,6 +332,106 @@ This will:
 
 **Note**: GitHub Pages can take 1-10 minutes to propagate changes. Also try a hard refresh (Cmd+Shift+R) or check in incognito mode to rule out browser caching.
 
+### Version Switching
+
+The site supports **version switching** to quickly change between different pre-built versions. This is useful during events when you want to switch to a simplified view or different content.
+
+#### How It Works
+
+Different versions of the site are tagged in git. You can switch between versions locally, test them, and deploy whichever version you need.
+
+**Available Versions:**
+- `v0.2.0-full` - Full site with all navigation and pages (main branch)
+- `v0.2.0-simple` - Simplified event view with no navigation, just registration and donate buttons
+
+#### Quick Version Switching
+
+```bash
+# List all available versions
+make list-versions
+
+# Switch to simplified event version
+make switch-simple
+
+# Switch to full version
+make switch-full
+
+# Switch to any specific version
+make switch VERSION=v0.2.0-simple
+
+# Return to main development branch
+make switch-main
+```
+
+#### Version Switching Workflow
+
+1. **Before an event**, prepare multiple versions:
+   ```bash
+   # Create a topic branch
+   git checkout -b features/event-special
+   
+   # Make your changes
+   # ... edit files ...
+   
+   # Commit and tag
+   git add -A
+   git commit -m "Create special event version"
+   git tag -a v0.2.1-event -m "Special event version"
+   git checkout main
+   ```
+
+2. **During an event**, switch versions quickly:
+   ```bash
+   # Switch to event version
+   make switch-simple
+   
+   # Build and deploy
+   make deploy-quick
+   
+   # Later, switch back to full version
+   make switch-full
+   make deploy-quick
+   ```
+
+3. **The script automatically**:
+   - Stashes any uncommitted changes
+   - Checks out the specified tag
+   - Cleans and rebuilds the site
+   - Shows you what to do next
+
+#### Creating New Versions
+
+```bash
+# Create a topic branch for your variant
+git checkout -b features/my-variant
+
+# Make changes to layouts, content, etc.
+# ... edit files ...
+
+# Commit changes
+git add -A
+git commit -m "Create my variant"
+
+# Tag this version
+git tag -a v0.2.x-myvariant -m "Description of variant"
+
+# Return to main
+git checkout main
+
+# Push tags to remote (optional)
+git push origin --tags
+```
+
+#### Direct Script Usage
+
+```bash
+# Run the switch script directly
+./scripts/switch.sh v0.2.0-simple
+
+# See available versions
+./scripts/switch.sh
+```
+
 ### Tips and Best Practices
 
 1. **Content Organization**: Use descriptive filenames and organize by date or category

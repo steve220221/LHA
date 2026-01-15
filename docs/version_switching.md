@@ -11,45 +11,47 @@
 # List all versions
 make list-versions
 
-# Switch to simplified version
+# Deploy simplified version (builds and deploys it)
+./scripts/switch.sh v0.2.0-simple
+# OR
 make switch-simple
 
-# Switch to full version  
+# Deploy full version
+./scripts/switch.sh v0.2.0-full
+# OR
 make switch-full
 
-# Switch to any version
+# Deploy any version
 make switch VERSION=v0.2.0-simple
-
-# Return to main branch for development
-make switch-main
 ```
 
 ## Event Day Workflow
 
 ### Before the Event
-1. Test both versions locally:
-   ```bash
-   make switch-simple
-   make dev  # View at localhost:1313
-   
-   make switch-full
-   make dev  # View at localhost:1313
-   ```
+Test versions locally using the regular dev workflow on different branches.
 
-2. Both versions are already deployed if needed
-
-### During the Event - Switch to Simple View
+### During the Event - Deploy Simple View
 ```bash
-make switch-simple
-make deploy-quick
+./scripts/switch.sh v0.2.0-simple
 ```
-*Site updates in 1-10 minutes*
+*Deploys immediately. Site updates in 1-10 minutes. You stay on main branch.*
 
-### After the Event - Return to Full View
+### After the Event - Deploy Full View
 ```bash
-make switch-full
-make deploy-quick
+./scripts/switch.sh v0.2.0-full
 ```
+
+## How It Works
+
+The script:
+1. Stashes any uncommitted changes (if needed)
+2. Temporarily checks out the specified tag
+3. Builds the site from that tag
+4. Deploys to GitHub Pages (gh-pages branch)
+5. Returns you to main branch
+6. Restores any stashed changes
+
+**You end up back on main branch** - no detached HEAD state!
 
 ## Creating New Versions
 
@@ -76,22 +78,22 @@ git push origin --tags
 ## Troubleshooting
 
 **"You have uncommitted changes"**
-- The script will automatically stash them
-- Retrieve later with `git stash pop`
-
-**"Detached HEAD state"**
-- This is normal when viewing tagged versions
-- Use `make switch-main` to return to normal development
+- The script will automatically stash them and restore after deployment
 
 **Changes not showing**
 - Wait 1-10 minutes for GitHub Pages to update
 - Try `make rebuild-pages` to force update
 - Hard refresh browser (Cmd+Shift+R)
 
+**Need to test a version locally before deploying**
+- Checkout the tag: `git checkout v0.2.0-simple`
+- Run dev server: `make dev`
+- Return to main: `git checkout main`
+
 ## Technical Details
 
 - Versions are stored as git tags
 - Each tag points to a specific commit
-- Switching checks out that commit (detached HEAD)
-- The script rebuilds the site automatically
-- Deploy deploys whatever version is currently checked out
+- The script temporarily checks out the tag, builds, deploys, then returns to main
+- Deploy uses git worktree for clean gh-pages management
+- You always end up back on main branch after deployment

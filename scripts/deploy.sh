@@ -56,23 +56,40 @@ if [ ! -f "public/CNAME" ]; then
     echo -e "${GREEN}Added CNAME file for custom domain${NC}"
 fi
 
+# Add .nojekyll to prevent GitHub from processing with Jekyll
+touch public/.nojekyll
+
 # Deploy to GitHub Pages (assuming gh-pages branch)
 echo -e "${GREEN}Deploying to GitHub Pages...${NC}"
 
-# Initialize git in public directory
-cd public
-git init
-git checkout -b gh-pages
+# Fetch the gh-pages branch
+git fetch origin gh-pages:gh-pages 2>/dev/null || echo "Creating new gh-pages branch..."
+
+# Use git worktree for cleaner deployment
+if [ -d ".gh-pages-worktree" ]; then
+    rm -rf .gh-pages-worktree
+fi
+
+git worktree add .gh-pages-worktree gh-pages 2>/dev/null || git worktree add -b gh-pages .gh-pages-worktree
+
+# Copy built files to worktree
+rsync -av --delete --exclude='.git' public/ .gh-pages-worktree/
+
+# Commit and push from worktree
+cd .gh-pages-worktree
 git add -A
+if git diff --staged --quiet; then
+    echo -e "${YELLOW}No changes to deploy${NC}"
+    cd ..
+    git worktree remove .gh-pages-worktree
+    exit 0
+fi
 
-# Commit the changes
-git commit -m "$MESSAGE"
-
-# Push to gh-pages branch
-git remote add origin git@github.com:steve220221/LHA.git 2>/dev/null || true
-git push -f origin gh-pages
+git commit -m "$MESSAGE - $(date '+%Y-%m-%d %H:%M:%S')"
+git push origin gh-pages
 
 cd ..
+git worktree remove .gh-pages-worktree
 
 # Tag the release if version is provided
 if [ -n "$VERSION" ]; then

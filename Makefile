@@ -56,6 +56,19 @@ status:
 	@echo ""
 	@echo "Recent Tags:"
 	@git tag -l | tail -5
+	@echo ""
+	@echo "Last gh-pages commit:"
+	@git log origin/gh-pages --oneline -1 2>/dev/null || echo "  (gh-pages branch not found locally)"
+
+# Force GitHub Pages rebuild
+rebuild-pages:
+	@echo "Fetching gh-pages branch..."
+	@git fetch origin gh-pages:gh-pages
+	@git checkout gh-pages
+	@git commit --allow-empty -m "Force rebuild - $$(date '+%Y-%m-%d %H:%M:%S')"
+	@git push origin gh-pages
+	@git checkout main
+	@echo "GitHub Pages rebuild triggered!"
 
 # Show help
 help:
@@ -70,10 +83,11 @@ help:
 	@echo "  deploy        - Deploy to GitHub Pages with optional VERSION and MESSAGE"
 	@echo "  deploy-quick  - Quick deploy without version tag"
 	@echo "  status        - Check git status and recent tags"
+	@echo "  rebuild-pages - Force GitHub Pages rebuild (if deploy isn't showing)"
 	@echo "  help          - Show this help message"
 	@echo ""
 	@echo "Examples:"
 	@echo "  make deploy VERSION=v0.1.2 MESSAGE='Add new feature'"
 	@echo "  make deploy-quick"
 
-.PHONY: dev dev-drafts build clean new-post new-page theme-update deploy deploy-quick status help
+.PHONY: dev dev-drafts build clean new-post new-page theme-update deploy deploy-quick status rebuild-pages help

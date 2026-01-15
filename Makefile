@@ -101,6 +101,37 @@ switch-main:
 	@git checkout main
 	@echo "Returned to main branch"
 
+# Switch to a different version (tag)
+switch:
+	@if [ -z "$(VERSION)" ]; then \
+		echo "Available versions:"; \
+		git tag -l | sed 's/^/  /'; \
+		echo ""; \
+		echo "Usage: make switch VERSION=v0.2.0-simple"; \
+		exit 1; \
+	fi
+	@./scripts/switch.sh "$(VERSION)"
+
+# List all available versions
+list-versions:
+	@echo "Available site versions:"
+	@git tag -l | sed 's/^/  /'
+	@echo ""
+	@echo "Current version:"
+	@git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --exact-match 2>/dev/null || echo "  (detached HEAD)"
+
+# Quick switches to common versions
+switch-simple:
+	@./scripts/switch.sh v0.2.0-simple
+
+switch-full:
+	@./scripts/switch.sh v0.2.0-full
+
+# Return to main development branch
+switch-main:
+	@git checkout main
+	@echo "Returned to main branch"
+
 # Show help
 help:
 	@echo "Available commands:"
@@ -130,5 +161,7 @@ help:
 	@echo "Examples:"
 	@echo "  make deploy VERSION=v0.1.2 MESSAGE='Add new feature'"
 	@echo "  make deploy-quick"
+	@echo "  make switch VERSION=v0.2.0-simple"
+	@echo "  make switch-simple"
 
-.PHONY: dev dev-drafts build clean new-post new-page theme-update deploy deploy-quick status rebuild-pages help
+.PHONY: dev dev-drafts build clean new-post new-page theme-update deploy deploy-quick status rebuild-pages switch list-versions switch-simple switch-full switch-main help

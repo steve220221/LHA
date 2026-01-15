@@ -314,6 +314,23 @@ make build
 - **Wrong branch**: Ensure you're on `main` before deploying
 - **Build fails**: Check Hugo errors with `make build`
 - **Site not updating**: GitHub Pages may take a few minutes to update
+- **Deploy succeeded but site not updating**: Force a rebuild with `make rebuild-pages`
+
+#### Force GitHub Pages Rebuild
+
+If you deployed successfully but the site isn't showing the latest changes:
+
+```bash
+make rebuild-pages
+```
+
+This will:
+- Fetch the latest `gh-pages` branch
+- Create an empty commit to trigger GitHub Pages rebuild
+- Push to force a fresh deployment
+- Return you to the `main` branch
+
+**Note**: GitHub Pages can take 1-10 minutes to propagate changes. Also try a hard refresh (Cmd+Shift+R) or check in incognito mode to rule out browser caching.
 
 ### Tips and Best Practices
 

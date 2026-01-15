@@ -1,0 +1,94 @@
+#!/bin/bash
+set -e
+
+# GitHub Pages Deployment Script for Hugo Site
+# Usage: ./scripts/deploy.sh [version] [message]
+# Example: ./scripts/deploy.sh v0.1.2 "Add new feature"
+
+VERSION=${1:-}
+MESSAGE=${2:-"Update site"}
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}Starting deployment process...${NC}"
+
+# Check if working directory is clean
+if [ -n "$(git status --porcelain)" ]; then
+    echo -e "${YELLOW}Warning: You have uncommitted changes${NC}"
+    echo "Please commit or stash your changes before deploying"
+    git status --short
+    exit 1
+fi
+
+# Ensure we're on main branch
+CURRENT_BRANCH=$(git branch --show-current)
+if [ "$CURRENT_BRANCH" != "main" ]; then
+    echo -e "${RED}Error: You must be on the main branch to deploy${NC}"
+    echo "Current branch: $CURRENT_BRANCH"
+    exit 1
+fi
+
+# Pull latest changes
+echo -e "${GREEN}Pulling latest changes from origin...${NC}"
+git pull origin main
+
+# Clean previous builds
+echo -e "${GREEN}Cleaning previous builds...${NC}"
+rm -rf public/ resources/
+
+# Build the site
+echo -e "${GREEN}Building site for production...${NC}"
+hugo --minify
+
+# Check if build was successful
+if [ ! -d "public" ]; then
+    echo -e "${RED}Error: Build failed - public directory not found${NC}"
+    exit 1
+fi
+
+# Add CNAME file if needed (for custom domain)
+if [ ! -f "public/CNAME" ]; then
+    echo "lamonihistoricalassociation.org" > public/CNAME
+    echo -e "${GREEN}Added CNAME file for custom domain${NC}"
+fi
+
+# Deploy to GitHub Pages (assuming gh-pages branch)
+echo -e "${GREEN}Deploying to GitHub Pages...${NC}"
+
+# Initialize git in public directory
+cd public
+git init
+git checkout -b gh-pages
+git add -A
+
+# Commit the changes
+git commit -m "$MESSAGE"
+
+# Push to gh-pages branch
+git remote add origin git@github.com:steve220221/LHA.git 2>/dev/null || true
+git push -f origin gh-pages
+
+cd ..
+
+# Tag the release if version is provided
+if [ -n "$VERSION" ]; then
+    echo -e "${GREEN}Creating version tag: $VERSION${NC}"
+    git tag -a "$VERSION" -m "$MESSAGE"
+    git push origin "$VERSION"
+    echo -e "${GREEN}Tag $VERSION created and pushed${NC}"
+fi
+
+echo -e "${GREEN}Deployment complete!${NC}"
+echo -e "${GREEN}Your site should be live at: https://lamonihistoricalassociation.org${NC}"
+echo ""
+echo "Summary:"
+echo "  - Built site with hugo --minify"
+echo "  - Deployed to gh-pages branch"
+if [ -n "$VERSION" ]; then
+    echo "  - Tagged as $VERSION"
+fi
+echo "  - Working directory is clean"

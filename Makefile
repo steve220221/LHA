@@ -33,16 +33,47 @@ new-page:
 theme-update:
 	git submodule update --remote --merge
 
+# Deploy to GitHub Pages (with optional version tag)
+# Usage: make deploy VERSION=v0.1.2 MESSAGE="Release notes"
+deploy:
+	@if [ -z "$(VERSION)" ]; then \
+		./scripts/deploy.sh "" "Update site"; \
+	else \
+		./scripts/deploy.sh "$(VERSION)" "$(MESSAGE)"; \
+	fi
+
+# Quick deploy without version tag
+deploy-quick:
+	./scripts/deploy.sh "" "Update site"
+
+# Check git status before deploying
+status:
+	@echo "Git Status:"
+	@git status --short
+	@echo ""
+	@echo "Current Branch:"
+	@git branch --show-current
+	@echo ""
+	@echo "Recent Tags:"
+	@git tag -l | tail -5
+
 # Show help
 help:
 	@echo "Available commands:"
-	@echo "  dev         - Start development server (default)"
-	@echo "  dev-drafts  - Start development server including draft posts"
-	@echo "  build       - Build site for production"
-	@echo "  clean       - Clean build artifacts"
-	@echo "  new-post    - Create a new blog post"
-	@echo "  new-page    - Create a new page"
-	@echo "  theme-update- Update theme to latest version"
-	@echo "  help        - Show this help message"
+	@echo "  dev           - Start development server (default)"
+	@echo "  dev-drafts    - Start development server including draft posts"
+	@echo "  build         - Build site for production"
+	@echo "  clean         - Clean build artifacts"
+	@echo "  new-post      - Create a new blog post"
+	@echo "  new-page      - Create a new page"
+	@echo "  theme-update  - Update theme to latest version"
+	@echo "  deploy        - Deploy to GitHub Pages with optional VERSION and MESSAGE"
+	@echo "  deploy-quick  - Quick deploy without version tag"
+	@echo "  status        - Check git status and recent tags"
+	@echo "  help          - Show this help message"
+	@echo ""
+	@echo "Examples:"
+	@echo "  make deploy VERSION=v0.1.2 MESSAGE='Add new feature'"
+	@echo "  make deploy-quick"
 
-.PHONY: dev dev-drafts build clean new-post new-page theme-update help
+.PHONY: dev dev-drafts build clean new-post new-page theme-update deploy deploy-quick status help

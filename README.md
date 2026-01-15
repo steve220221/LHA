@@ -256,20 +256,64 @@ make theme-update
 
 ### Deployment
 
-#### Build for Production
+This site is deployed to **GitHub Pages** at [https://lamonihistoricalassociation.org](https://lamonihistoricalassociation.org)
+
+**Repository**: `git@github.com:steve220221/LHA.git`  
+**Deployment Branch**: `gh-pages`  
+**Available Tags**: `v0.1.0`, `v0.1.1`
+
+#### Quick Deploy
 
 ```bash
-make build
+# Deploy without creating a version tag
+make deploy-quick
+
+# Deploy with a version tag
+make deploy VERSION=v0.1.2 MESSAGE="Add new feature"
 ```
 
-This generates static files in the `public/` directory.
+The deploy script will:
+1. Check that your working directory is clean
+2. Ensure you're on the `main` branch
+3. Pull latest changes from origin
+4. Build the site with `hugo --minify`
+5. Deploy to the `gh-pages` branch
+6. Create and push a version tag (if VERSION is provided)
+7. Leave your working directory clean on `main`
 
-#### Deploy to Popular Platforms
+#### Pre-Deployment Checklist
 
-- **Netlify**: Connect your Git repo, set build command to `hugo --minify`
-- **Vercel**: Import project, framework preset should auto-detect Hugo
-- **GitHub Pages**: Use GitHub Actions with Hugo workflow
-- **Traditional hosting**: Upload contents of `public/` directory
+```bash
+# Check current status
+make status
+
+# Test locally
+make dev
+
+# Ensure all changes are committed
+git add .
+git commit -m "Your changes"
+git push origin main
+```
+
+#### Manual Deployment
+
+If you need to deploy manually:
+
+```bash
+# Build the site
+make build
+
+# Run the deployment script
+./scripts/deploy.sh v0.1.2 "Release notes"
+```
+
+#### Deployment Troubleshooting
+
+- **Uncommitted changes**: Commit or stash changes before deploying
+- **Wrong branch**: Ensure you're on `main` before deploying
+- **Build fails**: Check Hugo errors with `make build`
+- **Site not updating**: GitHub Pages may take a few minutes to update
 
 ### Tips and Best Practices
 
